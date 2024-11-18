@@ -1,0 +1,67 @@
+<html><head><base href="/" />
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    font-family: 'Arial', sans-serif;
+}
+
+.start-button {
+    padding: 20px 60px;
+    font-size: 24px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #ff6b6b, #ff8e53);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.start-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.start-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.start-button:hover::after {
+    width: 200px;
+    height: 200px;
+}
+</style>
+</head>
+<body>
+    <button class="start-button">START</button>
+
+<script>
+document.querySelector('.start-button').addEventListener('click', function() {
+    // Create ripple effect
+    this.style.animation = 'none';
+    this.offsetHeight; // Trigger reflow
+    this.style.animation = 'pulse 0.6s ease';
+});
+</script>
+</body></html>
